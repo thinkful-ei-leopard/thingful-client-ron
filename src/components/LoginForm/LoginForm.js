@@ -28,11 +28,15 @@ export default class LoginForm extends Component {
     this.setState({ error: null })
     const { user_name, password } = ev.target
     
+    console.log(user_name.value)
+    console.log(password.value)
+
     AuthApiService.postLogin({
       user_name: user_name.value,
       password: password.value
     })
       .then(res => {
+        console.log(res)
         // After we POST our login info, make the values empty
         user_name.value = ''
         password.value = ''
